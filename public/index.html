@@ -22,7 +22,9 @@
 </head>
 <body>
 
-  <nav class="white" role="navigation">
+  <!-- ********** Navigation Bar Code Start ********** -->
+
+  <nav class="teal lighten-2" role="navigation">
 
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
@@ -35,7 +37,7 @@
     <!-- navbar code -->
     <div class="nav-wrapper container">
 
-      <a id="logo-container" href="/" class="brand-logo"><img src="images/sample.png" style="width:50px;height:50px;padding-top:10px"></a>
+      <a id="logo-container" href="/" class="brand-logo"><img id="logo" src="images/sample1.png"></a>
 
       <ul class="right hide-on-med-and-down">
         <li><a href="/views/view1.html">View 1</a></li>
@@ -44,16 +46,20 @@
         <li><a class="dropdown-button" href="#" data-activates="dropdown1">List<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="/views/view1.html">View1</a></li>
-        <li><a href="/views/view2.html">View 2</a></li>
+      <ul id="nav-mobile" class="side-nav teal lighten-2">
+        <li><a href="/views/view1.html" class="white-text">Side-View 1</a></li>
+        <li><a href="/views/view2.html" class="white-text">Side-View 2</a></li>
         <li class="divider"></li>
-        <li><a href="/views/view3.html">View 3</a></li>
+        <li><a href="/views/view3.html" class="white-text">Side-View 3</a></li>
       </ul>
 
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i id="menu-icon" class="material-icons">menu</i></a>
+
     </div>
+
   </nav>
+
+  <!-- ********** Navigation Bar Code Close ********** -->
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <!-- Compiled and minified JavaScript -->
