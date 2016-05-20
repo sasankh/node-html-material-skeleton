@@ -69,9 +69,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+        <h1 class="header center teal-text text-lighten-2">Video & Webcam Template</h1>
         <div class="row center">
-          <h5 class="header white-text col s12 light">The template is the modifcation of the template taken from materializecss template</h5>
+          <h5 class="header white-text col s12 light">The following examples are of playing a video using a url, straming the webcam video and performing a snapshot of the webcam while the webcam is streaming</h5>
         </div>
         <div class="row center">
           <!-- button using button -->
@@ -93,13 +93,31 @@
   <div class="container">
     <div class="section">
       <div class="row">
-
         <div class="video-container">
-          <iframe width="853" height="480" src="https://www.youtube.com/embed/yW0nYUa3e4k" frameborder="0" allowfullscreen></iframe>
+          <iframe id="linkVideo" width="853" height="480" src="https://www.youtube.com/embed/yW0nYUa3e4k" frameborder="0" allowfullscreen></iframe>
         </div>
-
-
       </div>
+
+      <div class="row">
+        <div class="row center">
+            <video class="responsive-video" id="webcam" controls></video>
+        </div>
+        <div class="row center">
+            <canvas class="responsive-img" id="canvas"></canvas>
+        </div>
+        <div class="row center">
+          <div class="col s4">
+            <button onclick="streamWebCam()" class="btn-large waves-effect waves-light teal lighten-1" type="button">Stream WebCam</button>
+          </div>
+          <div class="col s4">
+            <button onclick="stopWebCam()" class="btn-large waves-effect waves-light teal lighten-1" type="button">Stop WebCam</button>
+          </div>
+          <div class="col s4">
+            <button onclick="snapshotWebCam()" class="btn-large waves-effect waves-light teal lighten-1" type="button">Snapshot WebCam</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
   <!--***** Sample responsive card row code close ***** -->
@@ -130,5 +148,6 @@
   <!-- Compiled and minified JavaScript -->
   <script type="text/javascript" src="../js/materialize.min.js"></script>
   <script type="text/javascript" src="../js/index.js"></script>
+  <script type="text/javascript" src="../js/video.js"></script>
 </body>
 </html>
