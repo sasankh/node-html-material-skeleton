@@ -3,7 +3,7 @@ function streamWebCam(){
 
   var vendorUrl = window.URL || window.webkitURL;
 
-  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigatoe.msGetUserMedia;
+  navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
   navigator.getMedia({
     video: true,
@@ -45,5 +45,36 @@ function snapshotWebCam(){
 
   context = canvas.getContext("2d");
   context.drawImage(webcam,0,0, (1/2) * width, (7/24) * height);
+
+}
+
+function getScreen(){
+  var screen = document.getElementById('screen');
+
+  var vendorUrl = window.URL || window.webkitURL;
+
+  navigator.getMedia = navigator.webkitGetUserMedia || navigator.getUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+  navigator.getMedia({
+    video: {
+      mandatory: {
+        //chromeMediaSource: 'screen',
+        chromeMediaSource: "desktop",
+        chromeMediaSourceId: id
+        //minAspectRatio: 1.77,
+        maxWidth: 1280,
+        maxHeight: 720
+      }
+    },
+    audio: false,
+    optional: []
+  }, function(stream){
+    console.log(stream);
+    screen.src = window.URL.createObjectURL(stream);
+    screen.src = vendorUrl.createObjectURL(stream);
+    screen.play();
+  }, function(error){
+    console.log(error);
+  });
 
 }
