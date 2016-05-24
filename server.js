@@ -3,8 +3,13 @@
 
 global.__base = __dirname;
 
+// //for https start
+// var fs = require('fs');
+// var https = require('https');
+// //for https end
+
 var express = require('express');
-var http = require('http');
+var http = require('http'); //disable for https
 var path = require('path');
 var helmet = require('helmet');
 var cuid = require('cuid');
@@ -22,6 +27,14 @@ var logger;
 
 // express instance
 var app = express();
+
+// //for https start
+// var server = https.createServer({
+//   cert: fs.readFileSync(__dirname + '/server/ssl/server.crt'),
+//   key: fs.readFileSync(__dirname + '/server/ssl/private.key')
+// }, app);
+// //for https end
+
 
 if(config.app.env === 'production' || config.app.env === 'stage' || config.app.env === 'dev') {
   app.set('port', 80);
@@ -61,7 +74,8 @@ require('./server/routes/index')(app);
 logger = require(__base + '/server/init/logger').main;
 
 // start listening
-var server = app.listen(app.get('port'), function() {
+var server = app.listen(app.get('port'), function() { //disable for https
+// server.listen(app.get('port'), function() { //enable for https
   logger.info('[INITIALIZATION] --> server.js --> '+ config.application +' started at port : ' + app.get('port'));
 });
 
